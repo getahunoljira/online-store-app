@@ -1,43 +1,12 @@
 # Online Shopping App (Spring Boot)
 
-A Spring Boot port of the sibling `python-shopping-app`. Same domain model, same endpoints,
-same design patterns — implemented in Java.
+A Spring Boot online shopping application!
 
 - Spring Boot 4.0.5 / Java 17 / Maven
 - H2 in-memory database, schema managed by Flyway
 - JPA (Hibernate) for persistence
 - JUnit 5 + MockMvc for tests
 - Jackson with `SNAKE_CASE` for JSON bodies (parity with Python)
-
-## Layout
-
-```
-.
-├── pom.xml
-└── src/
-    ├── main/
-    │   ├── java/com/online/shop/
-    │   │   ├── Application.java
-    │   │   ├── api/              REST controllers
-    │   │   ├── config/           Spring @Configuration beans
-    │   │   ├── domain/patterns/  Strategy, State, Observer, Decorator
-    │   │   ├── exception/        Domain exceptions + @ControllerAdvice
-    │   │   ├── model/            JPA entities
-    │   │   ├── model/dto/        Request/response DTOs
-    │   │   ├── payment/          Payment-gateway clients (Stripe, Mock)
-    │   │   ├── repository/       Spring Data JPA repositories
-    │   │   ├── service/          Service interfaces (IProductService, ...)
-    │   │   ├── service/impl/     Service implementations
-    │   │   └── util/             Utilities (e.g. password hashing)
-    │   └── resources/
-    │       ├── application.properties
-    │       └── db/migration/     Flyway SQL migrations (V1__init.sql)
-    └── test/java/com/online/shop/
-        ├── api/                  Controller tests (@SpringBootTest + MockMvc)
-        ├── domain/               Pattern tests
-        ├── repository/           @DataJpaTest repository tests
-        └── service/              Service-layer tests
-```
 
 ## Endpoints
 
