@@ -1,6 +1,6 @@
 package com.online.shop.model.dto;
 
-import com.online.shop.domain.patterns.ShoppingCart;
+import com.online.shop.service.cart.ShoppingCart;
 import java.math.BigDecimal;
 import java.util.List;
 

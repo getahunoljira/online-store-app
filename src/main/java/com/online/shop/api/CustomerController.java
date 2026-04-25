@@ -5,7 +5,7 @@ import com.online.shop.model.dto.CustomerResponse;
 import com.online.shop.model.dto.ShippingAddressUpdateRequest;
 import com.online.shop.model.Address;
 import com.online.shop.model.Customer;
-import com.online.shop.service.ICustomerService;
+import com.online.shop.service.customer.ICustomerService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,7 @@
 package com.online.shop.model;
 
-import com.online.shop.domain.patterns.OrderObserver;
-import com.online.shop.domain.patterns.OrderState;
+import com.online.shop.core.observer.OrderObserver;
+import com.online.shop.core.state.OrderState;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

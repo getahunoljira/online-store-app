@@ -6,7 +6,7 @@ A Spring Boot online shopping application!
 - H2 in-memory database, schema managed by Flyway
 - JPA (Hibernate) for persistence
 - JUnit 5 + MockMvc for tests
-- Jackson with `SNAKE_CASE` for JSON bodies (parity with Python)
+- Jackson with `SNAKE_CASE` for JSON bodies
 
 ## Endpoints
 
@@ -36,15 +36,6 @@ A Spring Boot online shopping application!
 | PATCH  | `/orders/{id}/status`                                 | Transition order status             |
 
 Actuator is enabled at `/actuator` (health only by default).
-
-## Design patterns
-
-Mirrors the Python original, class-for-class:
-
-- **Strategy** — `PaymentStrategy` (`CreditCardPaymentStrategy`, `UpiPaymentStrategy`)
-- **State** — `OrderState` (`PlacedState`, `ShippedState`, `DeliveredState`, `CancelledState`)
-- **Observer** — `OrderObserver` hooks triggered on state transitions
-- **Decorator** — `ProductDecorator` / `GiftWrapDecorator`
 
 The payment-gateway abstraction (`PaymentGatewayClient` with `StripeGatewayClient` and
 `MockGatewayClient` implementations) lives in `payment/`.

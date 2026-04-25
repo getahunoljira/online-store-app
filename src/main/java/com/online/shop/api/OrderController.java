@@ -4,7 +4,7 @@ import com.online.shop.model.dto.OrderResponse;
 import com.online.shop.model.dto.OrderStatusUpdateRequest;
 import com.online.shop.exception.OrderNotFoundException;
 import com.online.shop.model.Order;
-import com.online.shop.service.IOrderService;
+import com.online.shop.service.order.IOrderService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,19 +1,19 @@
 package com.online.shop.config;
 
-import com.online.shop.domain.patterns.CreditCardPaymentStrategy;
-import com.online.shop.domain.patterns.ShoppingCart;
+import com.online.shop.core.strategy.CreditCardPaymentStrategy;
+import com.online.shop.service.cart.ShoppingCart;
 import com.online.shop.model.Address;
 import com.online.shop.model.Customer;
 import com.online.shop.model.Order;
 import com.online.shop.model.Product;
 import com.online.shop.model.ProductCategory;
 import com.online.shop.repository.ProductRepository;
-import com.online.shop.service.ICartService;
-import com.online.shop.service.ICustomerService;
-import com.online.shop.service.IOrderService;
-import com.online.shop.service.IPaymentService;
-import com.online.shop.service.IProductService;
-import com.online.shop.service.PaymentResult;
+import com.online.shop.service.cart.ICartService;
+import com.online.shop.service.customer.ICustomerService;
+import com.online.shop.service.order.IOrderService;
+import com.online.shop.service.payment.IPaymentService;
+import com.online.shop.service.product.IProductService;
+import com.online.shop.service.payment.PaymentResult;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;

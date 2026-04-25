@@ -1,6 +1,6 @@
 package com.online.shop.model;
 
-import com.online.shop.domain.patterns.BaseProduct;
+import com.online.shop.service.product.BaseProduct;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

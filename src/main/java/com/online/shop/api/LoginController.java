@@ -3,7 +3,7 @@ package com.online.shop.api;
 import com.online.shop.model.dto.LoginRequest;
 import com.online.shop.model.dto.LoginResponse;
 import com.online.shop.model.Customer;
-import com.online.shop.service.ICustomerService;
+import com.online.shop.service.customer.ICustomerService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

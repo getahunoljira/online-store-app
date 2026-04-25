@@ -7,9 +7,8 @@ import com.online.shop.model.dto.StockUpdateRequest;
 import com.online.shop.exception.ProductNotFoundException;
 import com.online.shop.model.Product;
 import com.online.shop.model.ProductCategory;
-import com.online.shop.service.IInventoryService;
-import com.online.shop.service.IProductService;
-import com.online.shop.service.ISearchService;
+import com.online.shop.service.inventory.IInventoryService;
+import com.online.shop.service.product.IProductService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -28,15 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
   private final IProductService productService;
-  private final ISearchService searchService;
   private final IInventoryService inventoryService;
 
   public ProductController(
       IProductService productService,
-      ISearchService searchService,
       IInventoryService inventoryService) {
     this.productService = productService;
-    this.searchService = searchService;
     this.inventoryService = inventoryService;
   }
 
@@ -59,11 +55,11 @@ public class ProductController {
       @RequestParam(value = "name", required = false) String name) {
     List<Product> products;
     if (category != null) {
-      products = searchService.searchByCategory(category);
+      products = productService.searchByCategory(category);
     } else if (name != null) {
-      products = searchService.searchByName(name);
+      products = productService.searchByName(name);
     } else {
-      products = searchService.getAllProducts();
+      products = productService.getAllProducts();
     }
     return products.stream().map(ProductResponse::from).toList();
   }

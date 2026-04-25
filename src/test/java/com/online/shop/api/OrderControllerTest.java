@@ -9,14 +9,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
-import com.online.shop.domain.patterns.ShoppingCart;
+import com.online.shop.service.cart.ShoppingCart;
 import com.online.shop.model.Customer;
 import com.online.shop.model.Order;
 import com.online.shop.model.Product;
 import com.online.shop.repository.OrderRepository;
 import com.online.shop.repository.ProductRepository;
-import com.online.shop.service.ICustomerService;
-import com.online.shop.service.IOrderService;
+import com.online.shop.service.customer.ICustomerService;
+import com.online.shop.service.order.IOrderService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.online.shop.model.dto;
 
-import com.online.shop.domain.patterns.BaseProduct;
+import com.online.shop.service.product.BaseProduct;
 import com.online.shop.model.ProductCategory;
 import java.math.BigDecimal;
 
