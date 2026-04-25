@@ -2,7 +2,7 @@ package com.online.shop.domain.patterns;
 
 import com.online.shop.payment.GatewayChargeRequest;
 import com.online.shop.payment.GatewayChargeResult;
-import com.online.shop.payment.PaymentGatewayClient;
+import com.online.shop.payment.IPaymentGateway;
 import java.math.BigDecimal;
 
 public interface PaymentStrategy {
@@ -11,7 +11,7 @@ public interface PaymentStrategy {
       BigDecimal amount, String currency, String idempotencyKey, String description);
 
   default GatewayChargeResult pay(
-      PaymentGatewayClient gateway,
+      IPaymentGateway gateway,
       BigDecimal amount,
       String currency,
       String idempotencyKey) {

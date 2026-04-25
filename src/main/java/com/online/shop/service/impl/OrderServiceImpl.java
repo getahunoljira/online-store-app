@@ -28,9 +28,13 @@ public class OrderServiceImpl implements IOrderService {
   private final IInventoryService inventoryService;
   private final List<OrderObserver> observers = new ArrayList<>();
 
-  public OrderServiceImpl(OrderRepository orderRepository, IInventoryService inventoryService) {
+  public OrderServiceImpl(
+      OrderRepository orderRepository,
+      IInventoryService inventoryService,
+      List<OrderObserver> observers) {
     this.orderRepository = orderRepository;
     this.inventoryService = inventoryService;
+    this.observers.addAll(observers);
   }
 
   @Override
@@ -137,6 +141,9 @@ public class OrderServiceImpl implements IOrderService {
 
   private Order attachState(Order order) {
     order.setState(stateFor(order.getStatus()));
+    for (OrderObserver observer : observers) {
+      order.addObserver(observer);
+    }
     return order;
   }
 

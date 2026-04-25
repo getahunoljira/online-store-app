@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 import java.util.UUID;
 
-public class MockGatewayClient implements PaymentGatewayClient {
+public class MockGatewayClient implements IPaymentGateway {
 
   private static final Set<String> DECLINE_CARDS =
       Set.of("4000000000000002", "4000000000000069", "4000000000000127");

@@ -45,7 +45,7 @@ class OrderServiceTest {
     IInventoryService mockInv = mock(IInventoryService.class);
     when(mockRepo.save(any(Order.class))).thenAnswer(inv -> inv.getArgument(0));
 
-    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mockInv);
+    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mockInv, java.util.List.of());
     Order order = svc.createOrder(makeCustomer(), makeCartWithProduct());
 
     verify(mockInv, times(1)).updateStockForOrderList(anyList());
@@ -56,7 +56,7 @@ class OrderServiceTest {
 
   @Test
   void createOrderEmptyCartThrows() {
-    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mock(OrderRepository.class), mock(IInventoryService.class));
+    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mock(OrderRepository.class), mock(IInventoryService.class), java.util.List.of());
     assertThatThrownBy(() -> svc.createOrder(makeCustomer(), new ShoppingCart()))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("empty");
@@ -64,7 +64,7 @@ class OrderServiceTest {
 
   @Test
   void createOrderNoAddressThrows() {
-    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mock(OrderRepository.class), mock(IInventoryService.class));
+    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mock(OrderRepository.class), mock(IInventoryService.class), java.util.List.of());
     Customer customer = makeCustomer();
     customer.setShippingAddress(null);
     assertThatThrownBy(() -> svc.createOrder(customer, makeCartWithProduct()))
@@ -89,7 +89,7 @@ class OrderServiceTest {
     when(mockRepo.findById(eq("order-1"))).thenReturn(Optional.of(persisted));
     when(mockRepo.save(any(Order.class))).thenAnswer(inv -> inv.getArgument(0));
 
-    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mock(IInventoryService.class));
+    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mock(IInventoryService.class), java.util.List.of());
     Order result = svc.shipOrder("order-1");
 
     assertThat(result.getStatus()).isEqualTo(OrderStatus.SHIPPED);
@@ -113,7 +113,7 @@ class OrderServiceTest {
     when(mockRepo.findById(eq("order-1"))).thenReturn(Optional.of(persisted));
     when(mockRepo.save(any(Order.class))).thenAnswer(inv -> inv.getArgument(0));
 
-    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mock(IInventoryService.class));
+    IOrderService svc = new com.online.shop.service.impl.OrderServiceImpl(mockRepo, mock(IInventoryService.class), java.util.List.of());
     Order result = svc.cancelOrder("order-1");
 
     assertThat(result.getStatus()).isEqualTo(OrderStatus.CANCELLED);

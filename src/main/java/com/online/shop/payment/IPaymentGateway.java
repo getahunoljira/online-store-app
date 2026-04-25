@@ -2,7 +2,7 @@ package com.online.shop.payment;
 
 import java.math.BigDecimal;
 
-public interface PaymentGatewayClient {
+public interface IPaymentGateway {
 
   GatewayChargeResult charge(GatewayChargeRequest request);
 

@@ -3,7 +3,7 @@ package com.online.shop.service.impl;
 import com.online.shop.payment.GatewayChargeRequest;
 import com.online.shop.payment.GatewayChargeResult;
 import com.online.shop.payment.GatewayRefundResult;
-import com.online.shop.payment.PaymentGatewayClient;
+import com.online.shop.payment.IPaymentGateway;
 import com.online.shop.domain.patterns.PaymentStrategy;
 import com.online.shop.model.Payment;
 import com.online.shop.model.PaymentStatus;
@@ -24,10 +24,10 @@ import tools.jackson.databind.ObjectMapper;
 public class PaymentServiceImpl implements IPaymentService {
 
   private final PaymentRepository paymentRepository;
-  private final PaymentGatewayClient gateway;
+  private final IPaymentGateway gateway;
   private final ObjectMapper objectMapper = new ObjectMapper();
 
-  public PaymentServiceImpl(PaymentRepository paymentRepository, PaymentGatewayClient gateway) {
+  public PaymentServiceImpl(PaymentRepository paymentRepository, IPaymentGateway gateway) {
     this.paymentRepository = paymentRepository;
     this.gateway = gateway;
   }

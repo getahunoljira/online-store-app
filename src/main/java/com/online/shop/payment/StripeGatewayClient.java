@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import tools.jackson.databind.ObjectMapper;
 
-public class StripeGatewayClient implements PaymentGatewayClient {
+public class StripeGatewayClient implements IPaymentGateway {
 
   private final String apiKey;
   private final String baseUrl;
